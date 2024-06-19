@@ -1,0 +1,256 @@
+:root {
+    --vh: 1vh;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #2D4643, #000000); /* Gradient background */
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling initially */
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    position: relative;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.carousel-container.move-up {
+    height: 60vh; /* Adjust to desired height after click */
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    z-index: 2;
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%; /* Make them circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.carousel .arrow img {
+    width: 70%;
+    height: 70%;
+}
+
+.carousel .arrow:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel .arrow.left {
+    left: 10px;
+}
+
+.carousel .arrow.right {
+    right: 10px;
+}
+
+.carousel .slide {
+    width: 25%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.carousel .slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel .active {
+    opacity: 1 !important;
+    visibility: visible;
+}
+
+.carousel .hidden-left {
+    transform: translateX(-70%) scale(0.8); /* Adjusted spacing and scale */
+    z-index: 1;
+    opacity: 0.3; /* Increased transparency */
+    visibility: visible;
+}
+
+.carousel .hidden-right {
+    transform: translateX(70%) scale(0.8); /* Adjusted spacing and scale */
+    z-index: 1;
+    opacity: 0.3; /* Increased transparency */
+    visibility: visible;
+}
+
+.carousel .center {
+    transform: translateX(0) scale(1); /* Center slide with no extra scale */
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 100vh; /* Full height for mobile */
+    }
+
+    .carousel .slide {
+        width: 70%; /* Center slide takes majority of the width */
+    }
+
+    .carousel .hidden-left,
+    .carousel .hidden-right {
+        display: none; /* Hide the side slides */
+    }
+}
+
+.blossom {
+    position: fixed;
+    top: -10vh;
+    background: url('Bilder/pixel-art-sakura-flower-icon-png.webp') no-repeat center center / contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .blossom {
+        display: none;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 10px;
+}
+
+.model-viewer-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust as needed */
+}
+
+.image-placeholder {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    height: 300px; /* Adjust as needed */
+}
+
+.model-viewer-container model-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.image-placeholder img {
+    width: 20%;
+    height: 20%;
+}
+
+.images-container {
+    position: relative;
+    height: 500px; /* Adjust as needed */
+    background-color: #000000;
+    border: #fff;
+}
+
+.images-container img {
+    position: absolute;
+    width: 150px; /* Adjusted for scaling */
+    height: 150px; /* Adjusted for scaling */
+}
+
+.images-container .overlapping-image:nth-child(1) {
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.images-container .overlapping-image:nth-child(2) {
+    top: 100px;
+    left: 75px;
+    z-index: 4;
+}
+
+.images-container .overlapping-image:nth-child(3) {
+    top: 200px;
+    left: 0;
+    z-index: 3;
+}
+
+.images-container .overlapping-image:nth-child(4) {
+    top: 300px;
+    left: 75px;
+    z-index: 2;
+}
+
+.images-container .overlapping-image:nth-child(5) {
+    top: 400px;
+    left: 0;
+    z-index: 1;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 500px; /* Adjust as needed */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 767px) {
+    .overlapping-image {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .images-container, .text-box {
+        height: auto;
+    }
+}

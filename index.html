@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Menu Screen</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="carousel-container fullscreen">
+        <button class="arrow left" onclick="prevSlide()">
+            <img src="left-arrow-icon.png" alt="Left Arrow">
+        </button>
+        <div class="carousel">
+            <div class="slide" id="slide1"><img src="Bilder/Cartridge_full.png" alt="Anime 1"></div>
+            <div class="slide" id="slide2"><img src="Bilder/Cartridge_empty.png" alt="Anime 2"></div>
+            <div class="slide" id="slide3"><img src="Bilder/Cartridge_empty.png" alt="Anime 3"></div>
+        </div>
+        <button class="arrow right" onclick="nextSlide()">
+            <img src="right-arrow-icon.png" alt="Right Arrow">
+        </button>
+    </div>
+    <div class="content">
+        <div class="left-column">
+            <div class="model-viewer-container">
+                <!-- Platzhalter für 3D-Modell -->
+                <model-viewer src="Bilder/one_piece_logo.glb" alt="3D Model" auto-rotate camera-controls></model-viewer>
+            </div>
+            <div class="images-container">
+                <img src="Bilder/Cartridge_empty.png" alt="Bild 1" class="overlapping-image">
+                <img src="Bilder/Cartridge_empty.png" alt="Bild 2" class="overlapping-image">
+                <img src="Bilder/Cartridge_empty.png" alt="Bild 3" class="overlapping-image">
+                <img src="Bilder/Cartridge_empty.png" alt="Bild 4" class="overlapping-image">
+                <img src="Bilder/Cartridge_empty.png" alt="Bild 5" class="overlapping-image">
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="image-placeholder">
+                <!-- Platzhalter für Bild -->
+                <img src="Bilder/circlething.png" alt="Platzhalter Bild">
+            </div>
+            <div class="text-box">
+                <!-- Textbox für Text -->
+                <p> </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="cherryblossom.js"></script>
+</body>
+</html>
